@@ -1,0 +1,10 @@
+sudo service glusterd start
+sleep 10
+sudo mount -t glusterfs node1:/vol0 /data/workdir
+sudo java -jar /var/activity-bucket/ActivityBucket.jar /data/workdir 10.204.0.28:5672
+
+
+
+
+//// a colocar como init script da máquina 
+sudo sh /var/init/init.sh

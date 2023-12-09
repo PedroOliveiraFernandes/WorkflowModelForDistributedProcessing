@@ -1,0 +1,95 @@
+{
+  "workflowName": "LongRunningWorkflow",
+  "workingDirectory": "/longRunningWorkflow",
+  "iterations": 5,
+  "activities": [
+    {
+      "activityName": "A",
+      "containerImage": "pedro41427/long-running-workflow-activity:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "LongRunningTask.jar",
+        "constants": [
+          "0"
+        ]
+      },
+      "ports": [
+        {
+          "name": "OPortA",
+          "type": "OUT",
+          "channel": "IPortB"
+        }
+      ],
+      "mappingsTaskArguments": [],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortA",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "B",
+      "containerImage": "pedro41427/long-running-workflow-activity:latest",
+      "replicas": 5,
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "LongRunningTask.jar",
+        "constants": [
+          "0"
+        ]
+      },
+      "ports": [
+        {
+          "name": "IPortB",
+          "type": "IN",
+          "channel": "OPortA"
+        },
+        {
+          "name": "OPortB",
+          "type": "OUT",
+          "channel": "IPortC"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortB",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortB",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "C",
+      "containerImage": "pedro41427/long-running-workflow-activity:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "LongRunningTask.jar",
+        "constants": [
+          "0",
+          "LongRunningWorkflowResults.txt"
+        ]
+      },
+      "ports": [
+        {
+          "name": "IPortC",
+          "type": "IN",
+          "channel": "OPortB"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortC",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+      ]
+    }
+  ]
+}

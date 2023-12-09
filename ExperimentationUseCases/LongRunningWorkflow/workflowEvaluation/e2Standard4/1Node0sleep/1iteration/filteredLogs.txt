@@ -1,0 +1,3 @@
+1694281033747[2023-09-09 18:37:13.747 | workflowName: LongRunningWorkflow | activityName: A | iteration: 0] - Activity started
+1694281033890[2023-09-09 18:37:13.890 | workflowName: LongRunningWorkflow | activityName: A | iteration: 0] - Mapping task arguments...
+1694281035385[2023-09-09 18:37:15.385 | workflowName: LongRunningWorkflow | activityName: C | iteration: 0] - Finished Activity execution

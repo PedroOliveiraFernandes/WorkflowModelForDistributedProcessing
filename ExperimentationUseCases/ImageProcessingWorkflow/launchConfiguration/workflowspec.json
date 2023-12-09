@@ -1,0 +1,258 @@
+{
+  "workflowName": "ImageProcessingWorkflow",
+  "workingDirectory": "/imageProcessingWorkflow",
+  "iterations": 12,
+  "activities": [
+    {
+      "activityName": "ImageUploader",
+      "containerImage": "pedro41427/image-processing-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ImageUploaderTask.jar",
+        "constants": [
+          "/inputs/image_%.jpg"
+        ]
+      },
+      "ports": [
+        {
+          "name": "OPort0Uploader",
+          "type": "OUT",
+          "channel": "IPortTextDetector"
+        },
+        {
+          "name": "OPort1Uploader",
+          "type": "OUT",
+          "channel": "IPortObjectDetector"
+        },
+        {
+          "name": "OPort2Uploader",
+          "type": "OUT",
+          "channel": "IPort0Annotator"
+        }
+      ],
+      "mappingsTaskArguments": [],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPort0Uploader",
+          "index": 0
+        },
+        {
+          "portName": "OPort1Uploader",
+          "index": 0
+        },
+        {
+          "portName": "OPort2Uploader",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "TextDetector",
+      "containerImage": "pedro41427/image-processing-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "TextDetectorTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortTextDetector",
+          "type": "IN",
+          "channel": "OPort0Uploader"
+        },
+        {
+          "name": "OPortTextDetector",
+          "type": "OUT",
+          "channel": "IPortTranslator1"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortTextDetector",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortTextDetector",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "TextTranslator1",
+      "containerImage": "pedro41427/image-processing-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "TextTranslationTask.jar",
+        "constants": ["en"]
+      },
+      "ports": [
+        {
+          "name": "IPortTranslator1",
+          "type": "IN",
+          "channel": "OPortTextDetector"
+        },
+        {
+          "name": "OPortTranslator1",
+          "type": "OUT",
+          "channel": "IPort1Annotator"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortTranslator1",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortTranslator1",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "ObjectDetector",
+      "containerImage": "pedro41427/image-processing-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ObjectDetectorTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortObjectDetector",
+          "type": "IN",
+          "channel": "OPort1Uploader"
+        },
+        {
+          "name": "OPortObjectDetector",
+          "type": "OUT",
+          "channel": "IPortTranslator2"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortObjectDetector",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortObjectDetector",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "TextTranslator2",
+      "containerImage": "pedro41427/image-processing-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "TextTranslationTask.jar",
+        "constants": ["en"]
+      },
+      "ports": [
+        {
+          "name": "IPortTranslator2",
+          "type": "IN",
+          "channel": "OPortObjectDetector"
+        },
+        {
+          "name": "OPortTranslator2",
+          "type": "OUT",
+          "channel": "IPort2Annotator"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortTranslator2",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortTranslator2",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "ImageAnnotator",
+      "containerImage": "pedro41427/image-processing-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ImageAnnotatorTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPort0Annotator",
+          "type": "IN",
+          "channel": "OPort2Uploader"
+        },
+        {
+          "name": "IPort1Annotator",
+          "type": "IN",
+          "channel": "OPortTranslator1"
+        },
+        {
+          "name": "IPort2Annotator",
+          "type": "IN",
+          "channel": "OPortTranslator2"
+        },
+        {
+          "name": "OPortAnnotator",
+          "type": "OUT",
+          "channel": "IPortDownloader"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPort0Annotator",
+          "index": 0
+        },
+        {
+          "portName": "IPort1Annotator",
+          "index": 1
+        },
+        {
+          "portName": "IPort2Annotator",
+          "index": 2
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortAnnotator",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "ImageDownloader",
+      "containerImage": "pedro41427/image-processing-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ImageDownloaderTask.jar",
+        "constants": [
+          "/outputs/annotated_image_%.jpg"
+        ]
+      },
+      "ports": [
+        {
+          "name": "IPortDownloader",
+          "type": "IN",
+          "channel": "OPortAnnotator"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortDownloader",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": []
+    }
+  ]
+}

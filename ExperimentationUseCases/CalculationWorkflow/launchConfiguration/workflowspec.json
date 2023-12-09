@@ -1,0 +1,195 @@
+{
+  "workflowName": "CalculationWorkflow",
+  "workingDirectory": "/calculationWorkflow",
+  "iterations":20,
+  "activities": [
+    {
+      "activityName": "RampUpX",
+      "containerImage": "pedro41427/calculation-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "RampUpTask.jar",
+        "constants": [
+          "1",
+          "1"
+        ]
+      },
+      "ports": [
+        {
+          "name": "OPort0RampX",
+          "type": "OUT",
+          "channel": "IPort0Add1"
+        },
+        {
+          "name": "OPort1RampX",
+          "type": "OUT",
+          "channel": "IPort0Add2"
+        }
+      ],
+      "mappingsTaskArguments": [],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPort0RampX",
+          "index": 0
+        },
+        {
+          "portName": "OPort1RampX",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "RampUpY",
+      "containerImage": "pedro41427/calculation-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "RampUpTask.jar",
+        "constants": [
+          "0",
+          "2"
+        ]
+      },
+      "ports": [
+        {
+          "name": "OPort0RampY",
+          "type": "OUT",
+          "channel": "IPort1Add1"
+        },
+        {
+          "name": "OPort1RampY",
+          "type": "OUT",
+          "channel": "IPort1Add2"
+        }
+      ],
+      "mappingsTaskArguments": [],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPort0RampY",
+          "index": 0
+        },
+        {
+          "portName": "OPort1RampY",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Addition1",
+      "containerImage": "pedro41427/calculation-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "AdditionTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPort0Add1",
+          "type": "IN",
+          "channel": "OPort0RampX"
+        },
+        {
+          "name": "IPort1Add1",
+          "type": "IN",
+          "channel": "OPort0RampY"
+        },
+        {
+          "name": "OPort0Add1",
+          "type": "OUT",
+          "channel": "IPort0Mult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPort0Add1",
+          "index": 0
+        },
+        {
+          "portName": "IPort1Add1",
+          "index": 1
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPort0Add1",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Addition2",
+      "containerImage": "pedro41427/calculation-workflow-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "AdditionTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPort0Add2",
+          "type": "IN",
+          "channel": "OPort1RampX"
+        },
+        {
+          "name": "IPort1Add2",
+          "type": "IN",
+          "channel": "OPort1RampY"
+        },
+        {
+          "name": "OPort0Add2",
+          "type": "OUT",
+          "channel": "IPort1Mult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPort0Add2",
+          "index": 0
+        },
+        {
+          "portName": "IPort1Add2",
+          "index": 1
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPort0Add2",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Multiplication",
+      "containerImage": "pedro41427/calculation-workflow-activities:latest",
+      "task": {
+        "executionCommand": "python3",
+        "executable": "MultiplicationTask.py",
+        "constants": [
+          "WorkflowResults.txt"
+        ]
+      },
+      "ports": [
+        {
+          "name": "IPort0Mult",
+          "type": "IN",
+          "channel": "OPort0Add1"
+        },
+        {
+          "name": "IPort1Mult",
+          "type": "IN",
+          "channel": "OPort0Add2"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPort0Mult",
+          "index": 0
+        },
+        {
+          "portName": "IPort1Mult",
+          "index": 1
+        }
+      ],
+      "mappingsTaskResults": []
+    }
+  ]
+}

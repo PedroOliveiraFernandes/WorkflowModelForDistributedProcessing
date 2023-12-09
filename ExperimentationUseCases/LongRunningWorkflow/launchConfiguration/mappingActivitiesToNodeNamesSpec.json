@@ -1,0 +1,22 @@
+{
+  "mappingActivitiesToNodes": [
+    {
+      "activityName": "TaskSimulation1",
+      "nodeNames": [
+        "node1"
+      ]
+    },
+    {
+      "activityName": "TaskSimulation2",
+      "nodeNames": [
+        "node2"
+      ]
+    },
+    {
+      "activityName": "TaskSimulation3",
+      "nodeNames": [
+        "node3"
+      ]
+    }
+  ]
+}

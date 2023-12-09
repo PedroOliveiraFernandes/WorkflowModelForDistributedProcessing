@@ -1,0 +1,7 @@
+{
+  "executionCommand": "java -jar",
+  "executable": "task.jar",
+  "constants": [
+    "k"
+  ]
+}

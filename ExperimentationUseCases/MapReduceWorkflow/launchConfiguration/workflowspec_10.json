@@ -1,0 +1,1078 @@
+{
+  "workflowName": "MapReduceWorkflow",
+  "workingDirectory": "/mapReduceWorkflow",
+  "iterations": 1,
+  "activities": [
+    {
+      "activityName": "Splitter",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "SplitTask.jar",
+        "constants": [
+          "alice_in_wonderland_x10.txt",
+          "10"
+        ]
+      },
+      "ports": [
+        {
+          "name": "OPort0Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper1"
+        },
+        {
+          "name": "OPort1Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper2"
+        },
+        {
+          "name": "OPort2Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper3"
+        },
+        {
+          "name": "OPort3Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper4"
+        },
+        {
+          "name": "OPort4Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper5"
+        },
+        {
+          "name": "OPort5Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper6"
+        },
+        {
+          "name": "OPort6Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper7"
+        },
+        {
+          "name": "OPort7Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper8"
+        },
+        {
+          "name": "OPort8Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper9"
+        },
+        {
+          "name": "OPort9Splitter",
+          "type": "OUT",
+          "channel": "IPortMapper10"
+        }
+      ],
+      "mappingsTaskArguments": [],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPort0Splitter",
+          "index": 0
+        },
+        {
+          "portName": "OPort1Splitter",
+          "index": 1
+        },
+        {
+          "portName": "OPort2Splitter",
+          "index": 2
+        },
+        {
+          "portName": "OPort3Splitter",
+          "index": 3
+        },
+        {
+          "portName": "OPort4Splitter",
+          "index": 4
+        },
+        {
+          "portName": "OPort5Splitter",
+          "index": 5
+        },
+        {
+          "portName": "OPort6Splitter",
+          "index": 6
+        },
+        {
+          "portName": "OPort7Splitter",
+          "index": 7
+        },
+        {
+          "portName": "OPort8Splitter",
+          "index": 8
+        },
+        {
+          "portName": "OPort9Splitter",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper1",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper1",
+          "type": "IN",
+          "channel": "OPort0Splitter"
+        },
+        {
+          "name": "OPortMapper1",
+          "type": "OUT",
+          "channel": "IPort0MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper1",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper1",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper2",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper2",
+          "type": "IN",
+          "channel": "OPort1Splitter"
+        },
+        {
+          "name": "OPortMapper2",
+          "type": "OUT",
+          "channel": "IPort1MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper2",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper2",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper3",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper3",
+          "type": "IN",
+          "channel": "OPort2Splitter"
+        },
+        {
+          "name": "OPortMapper3",
+          "type": "OUT",
+          "channel": "IPort2MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper3",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper3",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper4",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper4",
+          "type": "IN",
+          "channel": "OPort3Splitter"
+        },
+        {
+          "name": "OPortMapper4",
+          "type": "OUT",
+          "channel": "IPort3MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper4",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper4",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper5",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper5",
+          "type": "IN",
+          "channel": "OPort4Splitter"
+        },
+        {
+          "name": "OPortMapper5",
+          "type": "OUT",
+          "channel": "IPort4MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper5",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper5",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper6",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper6",
+          "type": "IN",
+          "channel": "OPort5Splitter"
+        },
+        {
+          "name": "OPortMapper6",
+          "type": "OUT",
+          "channel": "IPort5MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper6",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper6",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper7",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper7",
+          "type": "IN",
+          "channel": "OPort6Splitter"
+        },
+        {
+          "name": "OPortMapper7",
+          "type": "OUT",
+          "channel": "IPort6MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper7",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper7",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper8",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper8",
+          "type": "IN",
+          "channel": "OPort7Splitter"
+        },
+        {
+          "name": "OPortMapper8",
+          "type": "OUT",
+          "channel": "IPort7MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper8",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper8",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper9",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper9",
+          "type": "IN",
+          "channel": "OPort8Splitter"
+        },
+        {
+          "name": "OPortMapper9",
+          "type": "OUT",
+          "channel": "IPort8MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper9",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper9",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Mapper10",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MapTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortMapper10",
+          "type": "IN",
+          "channel": "OPort9Splitter"
+        },
+        {
+          "name": "OPortMapper10",
+          "type": "OUT",
+          "channel": "IPort9MergerSorterSplitter"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortMapper10",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortMapper10",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "MergerSorterSplitter",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "MergeSortSplitTask.jar",
+        "constants": [
+          "10"
+        ]
+      },
+      "ports": [
+        {
+          "name": "IPort0MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper1"
+        },
+        {
+          "name": "IPort1MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper2"
+        },
+        {
+          "name": "IPort2MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper3"
+        },
+        {
+          "name": "IPort3MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper4"
+        },
+        {
+          "name": "IPort4MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper5"
+        },
+        {
+          "name": "IPort5MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper6"
+        },
+        {
+          "name": "IPort6MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper7"
+        },
+        {
+          "name": "IPort7MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper8"
+        },
+        {
+          "name": "IPort8MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper9"
+        },
+        {
+          "name": "IPort9MergerSorterSplitter",
+          "type": "IN",
+          "channel": "OPortMapper10"
+        },
+        {
+          "name": "OPort0MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer1"
+        },
+        {
+          "name": "OPort1MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer2"
+        },
+        {
+          "name": "OPort2MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer3"
+        },
+        {
+          "name": "OPort3MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer4"
+        },
+        {
+          "name": "OPort4MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer5"
+        },
+        {
+          "name": "OPort5MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer6"
+        },
+        {
+          "name": "OPort6MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer7"
+        },
+        {
+          "name": "OPort7MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer8"
+        },
+        {
+          "name": "OPort8MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer9"
+        },
+        {
+          "name": "OPort9MergerSorterSplitter",
+          "type": "OUT",
+          "channel": "IPortReducer10"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPort0MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort1MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort2MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort3MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort4MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort5MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort6MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort7MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort8MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "IPort9MergerSorterSplitter",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPort0MergerSorterSplitter",
+          "index": 0
+        },
+        {
+          "portName": "OPort1MergerSorterSplitter",
+          "index": 1
+        },
+        {
+          "portName": "OPort2MergerSorterSplitter",
+          "index": 2
+        },
+        {
+          "portName": "OPort3MergerSorterSplitter",
+          "index": 3
+        },
+        {
+          "portName": "OPort4MergerSorterSplitter",
+          "index": 4
+        },
+        {
+          "portName": "OPort5MergerSorterSplitter",
+          "index": 5
+        },
+        {
+          "portName": "OPort6MergerSorterSplitter",
+          "index": 6
+        },
+        {
+          "portName": "OPort7MergerSorterSplitter",
+          "index": 7
+        },
+        {
+          "portName": "OPort8MergerSorterSplitter",
+          "index": 8
+        },
+        {
+          "portName": "OPort9MergerSorterSplitter",
+          "index": 9
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer1",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer1",
+          "type": "IN",
+          "channel": "OPort0MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer1",
+          "type": "OUT",
+          "channel": "IPort0FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer1",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer1",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer2",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer2",
+          "type": "IN",
+          "channel": "OPort1MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer2",
+          "type": "OUT",
+          "channel": "IPort1FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer2",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer2",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer3",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer3",
+          "type": "IN",
+          "channel": "OPort2MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer3",
+          "type": "OUT",
+          "channel": "IPort2FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer3",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer3",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer4",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer4",
+          "type": "IN",
+          "channel": "OPort3MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer4",
+          "type": "OUT",
+          "channel": "IPort3FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer4",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer4",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer5",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer5",
+          "type": "IN",
+          "channel": "OPort4MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer5",
+          "type": "OUT",
+          "channel": "IPort4FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer5",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer5",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer6",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer6",
+          "type": "IN",
+          "channel": "OPort5MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer6",
+          "type": "OUT",
+          "channel": "IPort5FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer6",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer6",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer7",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer7",
+          "type": "IN",
+          "channel": "OPort6MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer7",
+          "type": "OUT",
+          "channel": "IPort6FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer7",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer7",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer8",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer8",
+          "type": "IN",
+          "channel": "OPort7MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer8",
+          "type": "OUT",
+          "channel": "IPort7FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer8",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer8",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer9",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer9",
+          "type": "IN",
+          "channel": "OPort8MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer9",
+          "type": "OUT",
+          "channel": "IPort8FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer9",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer9",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "Reducer10",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "ReduceTask.jar",
+        "constants": []
+      },
+      "ports": [
+        {
+          "name": "IPortReducer10",
+          "type": "IN",
+          "channel": "OPort9MergerSorterSplitter"
+        },
+        {
+          "name": "OPortReducer10",
+          "type": "OUT",
+          "channel": "IPort9FinalResult"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortReducer10",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortReducer10",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "FinalResult",
+      "containerImage": "pedro41427/map-reduce-activities:latest",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "FinalResultTask.jar",
+        "constants": [
+          "Result.txt"
+        ]
+      },
+      "ports": [
+        {
+          "name": "IPort0FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer1"
+        },
+        {
+          "name": "IPort1FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer2"
+        },
+        {
+          "name": "IPort2FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer3"
+        },
+        {
+          "name": "IPort3FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer4"
+        },
+        {
+          "name": "IPort4FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer5"
+        },
+        {
+          "name": "IPort5FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer6"
+        },
+        {
+          "name": "IPort6FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer7"
+        },
+        {
+          "name": "IPort7FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer8"
+        },
+        {
+          "name": "IPort8FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer9"
+        },
+        {
+          "name": "IPort9FinalResult",
+          "type": "IN",
+          "channel": "OPortReducer10"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPort0FinalResult",
+          "index": 0
+        },
+        {
+          "portName": "IPort1FinalResult",
+          "index": 1
+        },
+        {
+          "portName": "IPort2FinalResult",
+          "index": 2
+        },
+        {
+          "portName": "IPort3FinalResult",
+          "index": 3
+        },
+        {
+          "portName": "IPort4FinalResult",
+          "index": 4
+        },
+        {
+          "portName": "IPort5FinalResult",
+          "index": 5
+        },
+        {
+          "portName": "IPort6FinalResult",
+          "index": 6
+        },
+        {
+          "portName": "IPort7FinalResult",
+          "index": 7
+        },
+        {
+          "portName": "IPort8FinalResult",
+          "index": 8
+        },
+        {
+          "portName": "IPort9FinalResult",
+          "index": 9
+        }
+      ],
+      "mappingsTaskResults": [
+      ]
+    }
+  ]
+}

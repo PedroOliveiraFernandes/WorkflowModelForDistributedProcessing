@@ -1,0 +1,1 @@
+java -jar .\target\WorkflowLauncher.jar  D:\MyStuff\Faculdade\Mestrado\aulas\SemestreCorrente\tfm\work\code\workflowComponents\WorkflowLauncher\infraspec.json D:\MyStuff\Faculdade\Mestrado\aulas\SemestreCorrente\tfm\work\code\examples\MapReduceWorkflow\launchConfiguration\workflowspec_10.json launch

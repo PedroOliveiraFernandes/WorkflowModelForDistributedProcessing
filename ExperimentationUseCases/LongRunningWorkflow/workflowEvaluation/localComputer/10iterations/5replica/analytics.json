@@ -1,0 +1,70 @@
+{
+  "workflowName": "LongRunningWorkflow",
+  "numberOfIterations": 10,
+  "totaWorkflowDuration": 23247,
+  "activities": [
+    {
+      "id": "A",
+      "minTaskDuration": 184,
+      "maxTaskDuration": 348,
+      "averageTaskDuration": 241,
+      "totalTasksDuration": 2418,
+      "totalActivityDuration": 2603,
+      "iterations": 10
+    },
+    {
+      "id": "B_replica_3_of_5",
+      "minTaskDuration": 10287,
+      "maxTaskDuration": 10330,
+      "averageTaskDuration": 10308,
+      "totalTasksDuration": 20617,
+      "totalActivityDuration": 20946,
+      "iterations": 2
+    },
+    {
+      "id": "B_replica_5_of_5",
+      "minTaskDuration": 10261,
+      "maxTaskDuration": 10290,
+      "averageTaskDuration": 10275,
+      "totalTasksDuration": 20551,
+      "totalActivityDuration": 21459,
+      "iterations": 2
+    },
+    {
+      "id": "C",
+      "minTaskDuration": 197,
+      "maxTaskDuration": 386,
+      "averageTaskDuration": 243,
+      "totalTasksDuration": 2435,
+      "totalActivityDuration": 21993,
+      "iterations": 10
+    },
+    {
+      "id": "B_replica_2_of_5",
+      "minTaskDuration": 10330,
+      "maxTaskDuration": 10335,
+      "averageTaskDuration": 10332,
+      "totalTasksDuration": 20665,
+      "totalActivityDuration": 20950,
+      "iterations": 2
+    },
+    {
+      "id": "B_replica_1_of_5",
+      "minTaskDuration": 10306,
+      "maxTaskDuration": 10345,
+      "averageTaskDuration": 10325,
+      "totalTasksDuration": 20651,
+      "totalActivityDuration": 20981,
+      "iterations": 2
+    },
+    {
+      "id": "B_replica_4_of_5",
+      "minTaskDuration": 10309,
+      "maxTaskDuration": 10318,
+      "averageTaskDuration": 10313,
+      "totalTasksDuration": 20627,
+      "totalActivityDuration": 22080,
+      "iterations": 2
+    }
+  ]
+}

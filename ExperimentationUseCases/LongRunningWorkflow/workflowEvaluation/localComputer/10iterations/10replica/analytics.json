@@ -1,0 +1,115 @@
+{
+  "workflowName": "LongRunningWorkflow",
+  "numberOfIterations": 10,
+  "totaWorkflowDuration": 15686,
+  "activities": [
+    {
+      "id": "A",
+      "minTaskDuration": 177,
+      "maxTaskDuration": 252,
+      "averageTaskDuration": 196,
+      "totalTasksDuration": 1967,
+      "totalActivityDuration": 2150,
+      "iterations": 10
+    },
+    {
+      "id": "B_replica_8_of_10",
+      "minTaskDuration": 10206,
+      "maxTaskDuration": 10206,
+      "averageTaskDuration": 10206,
+      "totalTasksDuration": 10206,
+      "totalActivityDuration": 13158,
+      "iterations": 1
+    },
+    {
+      "id": "B_replica_5_of_10",
+      "minTaskDuration": 10211,
+      "maxTaskDuration": 10211,
+      "averageTaskDuration": 10211,
+      "totalTasksDuration": 10211,
+      "totalActivityDuration": 10991,
+      "iterations": 1
+    },
+    {
+      "id": "C",
+      "minTaskDuration": 205,
+      "maxTaskDuration": 336,
+      "averageTaskDuration": 260,
+      "totalTasksDuration": 2605,
+      "totalActivityDuration": 15259,
+      "iterations": 10
+    },
+    {
+      "id": "B_replica_10_of_10",
+      "minTaskDuration": 10204,
+      "maxTaskDuration": 10204,
+      "averageTaskDuration": 10204,
+      "totalTasksDuration": 10204,
+      "totalActivityDuration": 13733,
+      "iterations": 1
+    },
+    {
+      "id": "B_replica_1_of_10",
+      "minTaskDuration": 10241,
+      "maxTaskDuration": 10241,
+      "averageTaskDuration": 10241,
+      "totalTasksDuration": 10241,
+      "totalActivityDuration": 11219,
+      "iterations": 1
+    },
+    {
+      "id": "B_replica_3_of_10",
+      "minTaskDuration": 10212,
+      "maxTaskDuration": 10212,
+      "averageTaskDuration": 10212,
+      "totalTasksDuration": 10212,
+      "totalActivityDuration": 13245,
+      "iterations": 1
+    },
+    {
+      "id": "B_replica_9_of_10",
+      "minTaskDuration": 10198,
+      "maxTaskDuration": 10198,
+      "averageTaskDuration": 10198,
+      "totalTasksDuration": 10198,
+      "totalActivityDuration": 12260,
+      "iterations": 1
+    },
+    {
+      "id": "B_replica_6_of_10",
+      "minTaskDuration": 10221,
+      "maxTaskDuration": 10221,
+      "averageTaskDuration": 10221,
+      "totalTasksDuration": 10221,
+      "totalActivityDuration": 12196,
+      "iterations": 1
+    },
+    {
+      "id": "B_replica_7_of_10",
+      "minTaskDuration": 10205,
+      "maxTaskDuration": 10205,
+      "averageTaskDuration": 10205,
+      "totalTasksDuration": 10205,
+      "totalActivityDuration": 12411,
+      "iterations": 1
+    },
+    {
+      "id": "B_replica_4_of_10",
+      "minTaskDuration": 10190,
+      "maxTaskDuration": 10190,
+      "averageTaskDuration": 10190,
+      "totalTasksDuration": 10190,
+      "totalActivityDuration": 12959,
+      "iterations": 1
+    },
+    {
+      "id": "B_replica_2_of_10",
+      "minTaskDuration": 10205,
+      "maxTaskDuration": 10205,
+      "averageTaskDuration": 10205,
+      "totalTasksDuration": 10205,
+      "totalActivityDuration": 10466,
+      "iterations": 1
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "broker": {
+    "ip": "",
+    "port": 5672
+  },
+  "nodes": [
+    {
+      "nodeName": "node1",
+      "ip": "",
+      "port": 8081
+    },
+    {
+      "nodeName": "node2",
+      "ip": "",
+      "port": 8081
+    },
+    {
+      "nodeName": "node3",
+      "ip": "",
+      "port": 8081
+    }
+  ]
+}

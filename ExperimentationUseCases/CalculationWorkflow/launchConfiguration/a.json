@@ -1,0 +1,59 @@
+{
+  "workflowName": "WorkflowAB",
+  "workingDirectory": "/pastaBaseDoWorkflow",
+  "iterations": 10,
+  "activities": [
+    {
+      "activityName": "A",
+      "containerImage": "imagem-activities-workflow-ab",
+      "task": {
+        "executionCommand": "python3",
+        "executable": "python_task.py",
+        "constants": [
+          "a1",
+          "a2"
+        ]
+      },
+      "ports": [
+        {
+          "name": "OPortA",
+          "type": "OUT",
+          "channel": "IPortB"
+        }
+      ],
+      "mappingsTaskArguments": [],
+      "mappingsTaskResults": [
+        {
+          "portName": "OPortA",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "activityName": "B",
+      "containerImage": "imagem-activities-workflow-ab",
+      "task": {
+        "executionCommand": "java -jar",
+        "executable": "javaTask.jar",
+        "constants": [
+          "b1",
+          "b2"
+        ]
+      },
+      "ports": [
+        {
+          "name": "IPortB",
+          "type": "OUT",
+          "channel": "OPortA"
+        }
+      ],
+      "mappingsTaskArguments": [
+        {
+          "portName": "IPortB",
+          "index": 0
+        }
+      ],
+      "mappingsTaskResults": []
+    }
+  ]
+}

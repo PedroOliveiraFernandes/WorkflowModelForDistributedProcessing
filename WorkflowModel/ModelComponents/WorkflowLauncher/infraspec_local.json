@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    {
+      "nodeName": "node1",
+      "ip": "localhost",
+      "port": 8081
+    }
+  ],
+  "broker": {
+    "ip": "localhost",
+    "port": 5672
+  }
+}

@@ -1,4 +1,0 @@
-launch rabidmq
-(user/pass=guest/guest)
-
-docker run --rm --name rabbidmq -d  -p 15672:15672 -p 5672:5672 rabbitmq:3.11.3-management
